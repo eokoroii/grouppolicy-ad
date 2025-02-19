@@ -29,7 +29,7 @@
     <strong>Launch Group Policy Management Console (GPMC)</strong><br />
     Log into DC-1 as the Domain Admin (<code>mydomain.com\jane_admin</code>). Open the Run dialog (<code>Win + R</code>), type <code>gpmc.msc</code>, and press Enter.
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Launching gpmc.msc on DC-1" width="600" />
+      <img src="https://i.imgur.com/qwPF3xw.png" alt="Launching gpmc.msc on DC-1" width="600" />
       <br /><em>Figure 4.1 – Opening the Group Policy Management Console on DC-1.</em>
     </p>
   </li>
@@ -39,7 +39,7 @@
     <strong>Edit the Default Domain Policy</strong><br />
     In GPMC, navigate to <code>Domains &gt; mydomain.com &gt; Default Domain Policy</code>, right-click it, and select <strong>Edit</strong>.
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Navigating to Default Domain Policy in GPMC" width="600" />
+      <img src="https://i.imgur.com/NB2nPLN.png" alt="Navigating to Default Domain Policy in GPMC" width="600" />
       <br /><em>Figure 4.2 – Accessing the Default Domain Policy.</em>
     </p>
   </li>
@@ -55,7 +55,7 @@
       <li>Set <strong>Reset account lockout counter</strong> to <code>10 minutes</code></li>
     </ul>
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Editing Account Lockout Policy settings" width="600" />
+      <img src="https://i.imgur.com/Z477aP6.png" alt="Editing Account Lockout Policy settings" width="600" />
       <br /><em>Figure 4.3 – Configuring the Account Lockout Policy.</em>
     </p>
   </li>
@@ -65,7 +65,7 @@
     <strong>Confirm Group Policy Changes</strong><br />
     Go to the <strong>Settings</strong> tab of the Default Domain Policy to verify that the new lockout settings are applied.
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Confirmation of Group Policy settings" width="600" />
+      <img src="https://i.imgur.com/QfE7hQt.png" alt="Confirmation of Group Policy settings" width="600" />
       <br /><em>Figure 4.4 – Confirming the updated lockout settings in the policy.</em>
     </p>
   </li>
@@ -76,7 +76,7 @@
     From a Remote Desktop session on Client-1, attempt to log in as the user <code>mydomain.com\kid.koxi</code> repeatedly.
     After 7+ failed attempts, the account should be locked out.
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Failed login attempts on Client-1" width="600" />
+      <img src="https://i.imgur.com/le4AWo1.png" alt="Failed login attempts on Client-1" width="600" />
       <br /><em>Figure 4.5 – Multiple failed login attempts locking out the account.</em>
     </p>
   </li>
@@ -86,7 +86,7 @@
     <strong>Unlock the Locked Account via ADUC</strong><br />
     Log back into DC-1 as <code>jane_admin</code> and open <strong>Active Directory Users and Computers</strong> (ADUC). Navigate to the <code>_EMPLOYEES</code> OU, locate <code>kid.koxi</code>, and open its properties. Check the box indicating the account is locked out to unlock it, then click <strong>Apply</strong>.
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Unlocking kid.koxi in ADUC" width="600" />
+      <img src="https://i.imgur.com/v9DYst9.png" alt="Unlocking kid.koxi in ADUC" width="600" />
       <br /><em>Figure 4.6 – Unlocking the locked account for kid.koxi.</em>
     </p>
   </li>
@@ -96,7 +96,7 @@
     <strong>Verify the Unlocked Account on Client-1</strong><br />
     Log into Client-1 again as <code>mydomain.com\kid.koxi</code>. Open Command Prompt (or PowerShell) and run <code>whoami</code> to confirm the correct user is logged in.
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Successful login and whoami output on Client-1" width="600" />
+      <img src="https://i.imgur.com/RIisWU4.png" alt="Successful login and whoami output on Client-1" width="600" />
       <br /><em>Figure 4.7 – Verification of successful login using whoami.</em>
     </p>
   </li>
@@ -105,14 +105,22 @@
   <li>
     <strong>Password Reset and Account Management</strong><br />
     Back on DC-1 in ADUC, right-click on <code>kid.koxi</code> and select <strong>Reset Password</strong> to set a new password. Additionally, you can use ADUC to disable or re-enable the account:
-    <ul>
-      <li>Disable the account and verify on Client-1 that login fails.</li>
-      <li>Re-enable the account and confirm that login succeeds.</li>
-    </ul>
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Disabling and re-enabling the account in ADUC" width="600" />
+      <img src="https://i.imgur.com/wVxY9AO.png" alt="resetting the account in ADUC" width="600" />
+      <img src="https://i.imgur.com/kIH4CdW.png" alt="resetting the account in ADUC" width="600" />
       <br /><em>Figure 4.8 – Resetting password and toggling account status in ADUC.</em>
     </p>
+     <ul>
+      <li>Disable the account and verify on Client-1 that login fails.</li>
+      <li>Re-enable the account and confirm that login succeeds.</li>
+       <p align="center">
+      <img src="https://i.imgur.com/6XMZcIc.png" alt="Disabling the account in ADUC" width="600" />
+       <img src="https://i.imgur.com/GoCvEr4.png" alt="Disabling the account in ADUC" width="600" />   
+      <img src="https://i.imgur.com/TRto91J.png" alt="re-enabling the account in ADUC" width="600" />
+      <img src="https://i.imgur.com/r4xdy1F.png" alt="re-enabling the account in ADUC" width="600" />   
+      <br /><em>Figure 4.8 – Disabling and Enabling Account status in ADUC.</em>
+    </p>
+    </ul>
   </li>
   <br />
 
@@ -120,7 +128,8 @@
     <strong>Review Security Logs</strong><br />
     On DC-1, open Event Viewer by running <code>eventvwr.msc</code> from the Start Menu. Under <strong>Windows Logs &gt; Security</strong>, use the <strong>Find</strong> option to search for <code>kid.koxi</code> and review the logs for successful and failed logon attempts. You can also check the logs on Client-1.
     <p align="center">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Event Viewer showing security logs for kid.koxi" width="600" />
+      <img src="https://i.imgur.com/14A49W7.png" alt="Event Viewer showing security logs for kid.koxi" width="600" />
+      <img src="https://i.imgur.com/wC53B61.png" alt="Event Viewer showing security logs for kid.koxi" width="600" />
       <br /><em>Figure 4.9 – Security logs in Event Viewer for kid.koxi.</em>
     </p>
   </li>
