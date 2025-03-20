@@ -1,4 +1,4 @@
-<h1>Active Directory Lab 4: Group Policy, Account Lockouts &amp; User Management</h1>
+<h1>Active Directory Lab: Group Policy, Account Lockouts &amp; User Management</h1>
 
 <h2>Project Summary</h2>
 <p>
